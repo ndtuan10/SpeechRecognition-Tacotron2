@@ -13,8 +13,10 @@
 - We use 2 pre-trained models
   - Tacotron2 pre-trained models https://github.com/NVIDIA/tacotron2
     - Để download checkpoint: https://drive.google.com/file/d/1c5ZTuT7J08wLUoVZ2KkUs_VdZuJ86ZqA/view
+![image](https://github.com/ndtuan10/SpeechRecognition-Tacotron2/blob/main/Tacotron-2-system-arch.png)
   - WaveGlow pre-trained models - https://github.com/NVIDIA/waveglow
     - Để download checkpoint: https://drive.google.com/file/d/1WsibBTsuRg_SF2Z6L6NFRTT-NjEy1oTx/view
+![image](https://github.com/ndtuan10/SpeechRecognition-Tacotron2/blob/main/WaveGlow-network.png)
 - For details on how to train 2 pre-trained models and how to synthesize speech, please read the following notebook. 
 https://github.com/ndtuan10/SpeechRecognition-Tacotron2/blob/main/Speech-recognition%20using%20pre-trained%20(Tacotron2%2BWaveGlow).ipynb
 
@@ -50,7 +52,7 @@ STT |Content
 - We enter a text in English in any “TEXT” section, for example: *“My love for you is like the raging sea. So powerful and deep it will forever be. Through storm, wind, and heavy rain, it will withstand every pain”*. In terms of meaning, we roughly translate *"Tình yêu anh dành cho em giống như biển cả đang điên cuồng. Quá mạnh mẽ và sâu sắc, nó sẽ luôn mãi mãi như vậy. Băng qua bão, gió và mưa lớn. Nó sẽ chịu đựng được tất cả mọi nỗi đau"*.
 - So this is a text like a verse. As a result, we expect the Tacotron2 and WaveGlow models to deliver a soothing, soulful reading.
 - Then we convert that text into a mel spectrogram, and plot it using the matplotlib library.
-![image](https://user-images.githubusercontent.com/71020335/125214282-747f8d00-e2e0-11eb-95f9-151217acb6d4.png)
+![image](https://github.com/ndtuan10/SpeechRecognition-Tacotron2/blob/main/mel-spectrogram-result.png)
 
 - Output audio by converting the generated mel spectrogram to audio. We use WaveGlow in inference and run using the output of the mel spectrogram when passing through the post-net, with sigma = 0.666 used to denoise the mel spectrogram and sampling rate = 22.050 kHz per second.
 - As a result, we get a 11-second audio female voice reading from the entered English text above. We can download this audio and listen from here. https://github.com/ndtuan10/SpeechRecognition-Tacotron2/blob/main/result.wav
